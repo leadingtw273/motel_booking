@@ -7,14 +7,13 @@ import '@/assets/styles/app.styl';
 Vue.use(Vuetify, {
     iconfont: 'md || fa',
     theme: {
-        primary: colors.blueGrey.base,
-        secondary: colors.blueGrey.lighten3,
+        primary: colors.blueGrey.lighten4,
+        secondary: colors.blueGrey.base,
         accent: colors.indigo.base,
         info: colors.teal.lighten1,
         warning: colors.amber.base,
         error: colors.deepOrange.accent4,
         success: colors.green.accent3,
-        black: colors.shades.black,
-        grey: colors.grey.base
+        black: colors.shades.black
     }
 });
