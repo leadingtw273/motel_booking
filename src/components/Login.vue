@@ -29,7 +29,7 @@ export default {
                         id: snapshot.key,
                         ...snapshot.val()
                     };
-                    this.$store.commit('setUser', userData);
+                    this.$store.commit('signInUser', userData);
                 })
                 .catch(error => {
                     // Handle Errors here.

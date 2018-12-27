@@ -29,6 +29,9 @@ export default {
         toOrder() {
             if (this.isPage('Order')) return;
             this.$router.push({ name: 'order' });
+        },
+        signOut() {
+            this.$store.commit('signOutUser');
         }
     }
 };
@@ -57,7 +60,7 @@ export default {
         <span>Login</span>
         <v-icon right>fa fa-sign-in-alt</v-icon>
       </v-btn>
-      <v-btn color="accent" flat v-show="isLogin">
+      <v-btn @click="signOut()" color="accent" flat v-show="isLogin">
         <span>Sign Out</span>
         <v-icon right>fa fa-sign-out-alt</v-icon>
       </v-btn>

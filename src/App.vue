@@ -22,6 +22,10 @@ export default {
         return {
             //
         };
+    },
+    created() {
+        const userData = JSON.parse(localStorage.getItem('user'));
+        if (userData) this.$store.commit('signInUser', userData);
     }
 };
 </script>
