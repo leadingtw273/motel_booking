@@ -1,11 +1,10 @@
 <script>
-import Login from './Login';
 import ProfileDrawer from './ProfileDrawer';
+import { auth } from '@/firebase.js';
 
 export default {
     components: {
-        ProfileDrawer,
-        Login
+        ProfileDrawer
     },
     data() {
         return {
@@ -31,7 +30,9 @@ export default {
             this.$router.push({ name: 'order' });
         },
         signOut() {
+            this.drawer = false;
             this.$store.commit('signOutUser');
+            auth.signOut();
         }
     }
 };

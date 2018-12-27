@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 export default {
     data() {
         return {
+            login: false,
             roomList: [],
             roomDialog: false,
             roomTarget: {},
@@ -19,6 +20,7 @@ export default {
     },
     methods: {
         showRoomDialog(index) {
+            if (!this.$store.state.userProfile.id) return (this.login = true);
             this.roomTarget = this.roomList[index];
             this.roomDialog = true;
         },
@@ -88,6 +90,7 @@ export default {
 
 <template>
   <v-layout justify-center row wrap>
+    <login :dialog.sync="login"></login>
     <v-dialog max-width="350" v-model="roomDialog">
       <v-card>
         <v-card-title class="headline">
@@ -151,12 +154,12 @@ export default {
     </v-dialog>
 
     <v-flex :key="index" v-for="(room,index) in roomList" xs4>
-      <v-card @click="showRoomDialog(index)" hover>
+      <v-card>
         <v-img :src="`https://unsplash.it/200/300?image=${Math.floor(index) + 1}`" aspect-ratio="1.5" height="200px"></v-img>
         <v-card-title class="py-2" primary-title>
           <h3 class="headline mb-0">{{room.name}}</h3>
           <v-spacer></v-spacer>
-          <v-btn color="secondary" outline>預定</v-btn>
+          <v-btn @click="showRoomDialog(index)" color="secondary" outline>預定</v-btn>
         </v-card-title>
         <v-card-text>
           <v-layout row wrap>

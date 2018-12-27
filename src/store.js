@@ -9,7 +9,7 @@ const localStoragePlugin = store => {
         if (mutation.type === 'signInUser') {
             window.localStorage.setItem('user', JSON.stringify(userProfile));
         }
-        if (mutation.type === 'signOut') {
+        if (mutation.type === 'signOutUser') {
             window.localStorage.removeItem('user');
         }
     });
