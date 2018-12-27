@@ -48,7 +48,6 @@ export default {
                 const userId = this.$store.state.userProfile.id;
                 db.ref('userList/' + userId).once('value', snapshot => {
                     resolve(snapshot.val().myRoomList);
-                    console.log(snapshot.val().myRoomList);
                 });
             });
         },
