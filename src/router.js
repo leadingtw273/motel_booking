@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import store from './store';
 import Home from './views/Home.vue';
 import UserOrder from './views/UserOrder.vue';
 
@@ -21,7 +22,11 @@ export default new Router({
         {
             path: '/Order',
             name: 'order',
-            component: UserOrder
+            component: UserOrder,
+            beforeEnter: (to, from, next) => {
+                if (!store.state.userProfile.id) next({ name: 'home' });
+                next();
+            }
         }
     ]
 });

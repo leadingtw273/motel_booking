@@ -33,6 +33,7 @@ export default {
             this.drawer = false;
             this.$store.commit('signOutUser');
             auth.signOut();
+            this.$router.push({ name: 'home' });
         }
     }
 };
